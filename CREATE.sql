@@ -39,5 +39,3 @@ CREATE TABLE DESCONTOS (
 
     Primary Key (idDescontos)
 );
-
-

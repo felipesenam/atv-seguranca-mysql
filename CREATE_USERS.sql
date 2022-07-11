@@ -5,8 +5,8 @@ GRANT SELECT, UPDATE, INSERT, DELETE ON PAGAMENTOS.* TO Joao WITH GRANT OPTION;
 
 -- Aqui tá dando problema, é como se essa permissão não tivesse sido concedida,
 -- daí não tem como revocar e mostra um aviso
-REVOKE SELECT ON PAGAMENTOS.vw_funcionario FROM 'Joao';
-REVOKE SELECT ON PAGAMENTOS.vw_salario FROM 'Joao';
+REVOKE SELECT ON PAGAMENTOS.vw_funcionario FROM Joao;
+REVOKE SELECT ON PAGAMENTOS.vw_salario FROM Joao;
 -- ERROR 1147 (42000): There is no such grant defined for user 'Joao' on host '%' on table 'vw_funcionario'
 -- ERROR 1147 (42000): There is no such grant defined for user 'Joao' on host '%' on table 'vw_salario'
 
@@ -20,11 +20,12 @@ GRANT SELECT ON PAGAMENTOS.CLIENTES TO Jose;
 GRANT SELECT ON PAGAMENTOS.DESCONTOS TO Jose;
 
 -- d)
-GRANT UPDATE, INSERT, DELETE ON PAGAMENTOS.CLIENTES TO Joao;
+GRANT UPDATE, INSERT, DELETE ON PAGAMENTOS.CLIENTES TO Jose;
 
 -- e)
 REVOKE SELECT ON TABLE PAGAMENTOS.CLIENTES FROM Maria;
 
 -- f)
-REVOKE SELECT ON TABLE PAGAMENTOS.CLIENTES FROM 'Joao';
+REVOKE SELECT ON TABLE PAGAMENTOS.CLIENTES FROM Joao;
+REVOKE UPDATE, INSERT, DELETE ON PAGAMENTOS.CLIENTES FROM Jose;
 
